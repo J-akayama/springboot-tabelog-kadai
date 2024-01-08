@@ -1,0 +1,20 @@
+#データベース接続情報
+spring.datasource.url=jdbc:mysql://localhost:3306/nagoyameshi_db
+spring.datasource.username=root
+spring.datasource.password=hamada0706
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.sql.init.encoding=utf-8
+spring.sql.init.mode=always
+#ファイルサイズ
+spring.servlet.multipart.max-file-size=5MB
+#メール認証情報
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=hamada.workmail@gmail.com
+spring.mail.password=czca jvyc svqv iupc
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+#stripeのシークレットキー
+stripe.api-key=sk_test_51OEVBsHFoA6tn8NN1iewoRXVF0Lr2OWaa8Jhcp409dCwrToPXtfJCUDLRi2e4NozQvtVUa4jtuOQb2m1pJb3vZpx00HFomAFHO
+#stripeのsubscription料金のAPIキー
+stripe.premium-plan-id=price_1OUcniHFoA6tn8NN1vc1GCdU

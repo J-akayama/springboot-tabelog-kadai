@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="~{fragment :: meta}"></div>
+
+	<div th:replace="~{fragment :: styles}"></div>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+
+	<!-- Swiper -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+	<title>NAGOYAMESHI</title>
+</head>
+
+<body>
+	<div class="nagoyameshi-wrapper">
+		<!-- ヘッダー -->
+		<div th:replace="~{fragment :: header}"></div>
+
+		<main>
+
+			<div th:if="${param.loggedIn}" class="container nagoyameshi-container my-3">
+				<div class="alert alert-info" role="alert">
+					<p class="mb-0">ログインしました。</p>
+				</div>
+			</div>
+
+			<div th:if="${param.loggedOut}" class="container nagoyameshi-container my-3">
+				<div class="alert alert-info" role="alert">
+					<p class="mb-0">ログアウトしました。</p>
+				</div>
+			</div>
+
+			<div th:if="${successMessage}" class="container nagoyameshi-container my-3">
+				<div class="alert alert-info" role="alert">
+					<span th:text="${successMessage}"></span>
+				</div>
+			</div>
+
+			<div th:if="${errorMessage}" class="container nagoyameshi-container my-3">
+				<div class="alert alert-danger" role="alert">
+					<span th:text="${errorMessage}"></span>
+				</div>
+			</div>
+
+			<div class="bg-light mb-4 py-4">
+				<div class="container nagoyameshi-container">
+					<h2 class="mb-3">キーワードから探す</h2>
+					<form method="get" th:action="@{/restaurants}" class="nagoyameshi-user-search-box">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="店舗名・エリア・カテゴリ" name="keyword">
+							<button type="submit" class="btn text-white shadow-sm nagoyameshi-btn">検索</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="container nagoyameshi-container">
+            <div class="container pb-4">
+    <div class="mb-5">
+        <ul class="slider ps-0">
+          <li><img src="https://nagoyameshi-pattern-3.herokuapp.com/images/top3.jpg" alt="レストランの看板" class="w-100"></li>
+        </ul>
+    </div>
+
+         
+
+    <h2 class="text-center">店舗検索</h2>
+
+    <div class="d-flex justify-content-center mb-5">
+        <form method="GET" action="https://nagoyameshi-pattern-3.herokuapp.com/restaurants" class="search-box">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="店舗名で検索" name="keyword">
+                <button type="submit" class="btn btn-primary shadow-sm">検索</button> 
+            </div>               
+        </form>   
+    </div>
+    <h2 class="text-center">カテゴリ検索</h2>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-8">
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=1" role="button">居酒屋</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=2" role="button">焼肉</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=3" role="button">寿司</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=4" role="button">ラーメン</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=5" role="button">定食</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=6" role="button">カレー</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=7" role="button">喫茶店</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=8" role="button">中華料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=9" role="button">イタリア料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=10" role="button">フランス料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=11" role="button">スペイン料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=12" role="button">韓国料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=13" role="button">タイ料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=14" role="button">海鮮料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=15" role="button">ステーキ</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=16" role="button">ハンバーグ</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=17" role="button">ハンバーガー</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=18" role="button">そば</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=19" role="button">うどん</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=20" role="button">お好み焼き</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=21" role="button">たこ焼き</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=22" role="button">鍋料理</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=23" role="button">バー</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=24" role="button">パン</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=25" role="button">スイーツ</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=26" role="button">和食</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=27" role="button">おでん</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=28" role="button">焼き鳥</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=29" role="button">すき焼き</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=30" role="button">しゃぶしゃぶ</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=31" role="button">天ぷら</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=32" role="button">揚げ物</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=33" role="button">丼物</a>
+                            <a class="btn btn-secondary mb-2" href="https://nagoyameshi-pattern-3.herokuapp.com/restaurants?category_id=34" role="button">鉄板焼き</a>
+                    </div>
+    </div> 
+				<h2 class="mb-3">新着</h2>
+				<div class="row row-cols-xl-6 row-cols-md-3 row-cols-2 g-3 mb-5">
+					<div th:each="newRestaurant : ${newRestaurants}" class="col">
+						<a th:href="@{/restaurants/__${newRestaurant.getId()}__}"
+							class="link-dark nagoyameshi-card-link">
+							<div class="card h-100">
+								<img th:unless="${newRestaurant.getImage() == null}"
+									th:src="@{/storage/__${newRestaurant.getImage()}__}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="店舗画像">
+								<img th:if="${newRestaurant.getImage() == null}" th:src="@{/images/no_image.jpg}"
+									class="card-img-top nagoyameshi-vertical-card-image" alt="画像なし">
+
+								<div class="card-body">
+									<h3 class="card-title" th:text="${newRestaurant.getName()}"></h3>
+									<div class="text-muted small mb-1">
+										<th:block th:unless="${newRestaurant.getCategories().isEmpty()}">
+											<th:block th:each="category, stat : ${newRestaurant.getCategories()}">
+												<div class="d-inline-block">
+													<span th:if="${stat.first}"
+														th:text="${category.getName()}"></span><span
+														th:unless="${stat.first}"
+														th:text="${' ' + category.getName()}"></span>
+												</div>
+											</th:block>
+										</th:block>
+										<span th:if="${newRestaurant.getCategories().isEmpty()}">カテゴリ未設定</span>
+									</div>
+									<p class="card-text"
+										th:text="${#strings.abbreviate(newRestaurant.getDescription(), 20)}"></p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- フッター -->
+		<div th:replace="~{fragment :: footer}"></div>
+	</div>
+
+	<div th:replace="~{fragment :: scripts}"></div>
+
+</body>
+
+</html>
